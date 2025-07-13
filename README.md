@@ -24,7 +24,7 @@ Todos los servicios son incluidos como **submódulos Git**, apuntando a sus resp
 ```bash
 git clone --recurse-submodules https://github.com/Construtem/infra.git
 cd infra
-
+```
 ### 2. Configurar variables de entorno
 
 - Crear en cada repo de backend un archivo .env
@@ -35,3 +35,4 @@ cd infra
 
 ```bash
 docker compose up --build
+```
