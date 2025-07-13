@@ -1,0 +1,24 @@
+[submodule "frontend-ventas"]
+	path = frontend-ventas
+	url = https://github.com/Construtem/frontend-ventas.git
+[submodule "frontend-inventario"]
+	path = frontend-inventario
+	url = https://github.com/Construtem/frontend-inventario.git
+[submodule "frontend-facturacion"]
+	path = frontend-facturacion
+	url = https://github.com/Construtem/frontend-facturacion.git
+[submodule "frontend-login"]
+	path = frontend-login
+	url = https://github.com/Construtem/frontend-login.git
+[submodule "backend-login"]
+	path = backend-login
+	url = https://github.com/Construtem/backend-login.git
+[submodule "backend-inventario"]
+	path = backend-inventario
+	url = https://github.com/Construtem/backend-inventario.git
+[submodule "backend-ventas"]
+	path = backend-ventas
+	url = https://github.com/Construtem/backend-ventas.git
+[submodule "backend-facturacion"]
+	path = backend-facturacion
+	url = https://github.com/Construtem/backend-facturacion.git
