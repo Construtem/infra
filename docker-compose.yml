@@ -1,0 +1,57 @@
+version: '3.8'
+services:
+  frontend-login:
+    build: ./frontend-login
+    env_file:
+      - ./frontend-login/.env.local
+    ports:
+      - "3000:3000"
+
+  frontend-inventario:
+    build: ./frontend-inventario
+    env_file:
+      - ./frontend-inventario/.env.local
+    ports:
+      - "3001:3000"
+
+  frontend-ventas:
+    build: ./frontend-ventas
+    env_file:
+      - ./frontend-ventas/.env.local
+    ports:
+      - "3002:3000"
+
+  frontend-facturacion:
+    build: ./frontend-facturacion
+    env_file:
+      - ./frontend-facturacion/.env.local
+    ports:
+      - "3003:3000"
+
+  backend-login:
+    build: ./backend-login
+    env_file:
+      - ./backend-login/.env
+    ports:
+      - "8080:8080"
+
+  backend-inventario:
+    build: ./backend-inventario
+    env_file:
+      - ./backend-inventario/.env
+    ports:
+      - "8081:8080"
+
+  backend-ventas:
+    build: ./backend-ventas
+    env_file:
+      - ./backend-ventas/.env
+    ports:
+      - "8082:8080"
+
+  backend-facturacion:
+    build: ./backend-facturacion
+    env_file:
+      - ./backend-facturacion/.env
+    ports:
+      - "8083:8080"
