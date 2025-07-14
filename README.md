@@ -27,12 +27,32 @@ cd infra
 ```
 ### 2. Configurar variables de entorno
 
-- Crear en cada repo de backend un archivo .env
-- Crear en cada repo de frontend un archivo .env.local
-- Configurar los .env y .env.local los datos segun se indican en el .env.example de cada repo
+- Crear en cada repo un archivo .env
+- Configurar los .env con los datos segun se indican en el .env.example de cada repo
+- Pedirme a mí (Andres) las variables de entorno si desean levantar todos los servicios +56979828311
 
 ### 3. Levantar los servicios
 
 ```bash
 docker compose up --build
 ```
+
+## 🔄 Actualizar submódulos a la rama develop
+### ✅ Pasos para actualizar un submódulo
+
+### 1.- Ir al submodulo que deseas actualizar:
+```bash
+cd frontend-ventas
+```
+### 2.- Cambiar a la rama develop y traer los últimos cambios:
+```bash
+git switch develop
+```
+```bash
+git pull origin develop
+```
+### 3.- Volver al directorio raiz de infra:
+```bash
+cd ..
+```
+### ✅ Ahora puedes levantar con docker compose up --build asegurándote que están todos los repos actualizados ;)

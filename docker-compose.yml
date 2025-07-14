@@ -1,30 +1,46 @@
 version: '3.8'
 services:
   frontend-login:
-    build: ./frontend-login
-    env_file:
-      - ./frontend-login/.env.local
+    build:
+      context: ./frontend-login
+      args:
+        NEXT_PUBLIC_API_LOGIN: ${NEXT_PUBLIC_API_LOGIN}
+        NEXT_PUBLIC_FRONT_INVENTARIO: ${NEXT_PUBLIC_FRONT_INVENTARIO}
+        NEXT_PUBLIC_FRONT_VENTAS: ${NEXT_PUBLIC_FRONT_VENTAS}
+        NEXT_PUBLIC_FRONT_FACTURACION: ${NEXT_PUBLIC_FRONT_FACTURACION}
     ports:
       - "3000:3000"
 
   frontend-inventario:
-    build: ./frontend-inventario
-    env_file:
-      - ./frontend-inventario/.env.local
+    build: 
+      context: ./frontend-inventario
+      args:
+        NEXT_PUBLIC_FRONT_LOGIN: ${NEXT_PUBLIC_FRONT_LOGIN}
+        NEXT_PUBLIC_API_INVENTARIO: ${NEXT_PUBLIC_API_INVENTARIO}
+        NEXT_PUBLIC_API_VENTAS: ${NEXT_PUBLIC_API_VENTAS}
+        NEXT_PUBLIC_API_FACTURACION: ${NEXT_PUBLIC_API_FACTURACION}
+        NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: ${NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
     ports:
       - "3001:3000"
 
   frontend-ventas:
-    build: ./frontend-ventas
-    env_file:
-      - ./frontend-ventas/.env.local
+    build: 
+      context: ./frontend-ventas
+      args:
+        NEXT_PUBLIC_API_INVENTARIO: ${NEXT_PUBLIC_API_INVENTARIO}
+        NEXT_PUBLIC_API_VENTAS: ${NEXT_PUBLIC_API_VENTAS}
+        NEXT_PUBLIC_API_FACTURACION: ${NEXT_PUBLIC_API_FACTURACION}
+        NEXT_PUBLIC_FRONT_LOGIN: ${NEXT_PUBLIC_FRONT_LOGIN}
+        NEXT_PUBLIC_FRONT_FACTURACION: ${NEXT_PUBLIC_FRONT_FACTURACION}
     ports:
       - "3002:3000"
 
   frontend-facturacion:
-    build: ./frontend-facturacion
-    env_file:
-      - ./frontend-facturacion/.env.local
+    build: 
+      context: ./frontend-facturacion
+      args:
+        NEXT_PUBLIC_TOKEN_MERCADOPAGO: ${NEXT_PUBLIC_TOKEN_MERCADOPAGO}
+        DEV_BACKEND_URLS: ${DEV_BACKEND_URLS}
     ports:
       - "3003:3000"
 
