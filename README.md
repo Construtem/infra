@@ -27,7 +27,7 @@ cd infra
 ```
 ### 2. Configurar variables de entorno
 
-- Crear en cada repo un archivo .env
+- Crear en cada repo de backend un archivo .env
 - Configurar los .env con los datos segun se indican en el .env.example de cada repo
 - Pedirme a mí (Andres) las variables de entorno si desean levantar todos los servicios +56979828311
 

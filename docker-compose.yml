@@ -4,45 +4,65 @@ services:
     build:
       context: ./frontend-login
       args:
-        NEXT_PUBLIC_API_LOGIN: ${NEXT_PUBLIC_API_LOGIN}
-        NEXT_PUBLIC_FRONT_INVENTARIO: ${NEXT_PUBLIC_FRONT_INVENTARIO}
-        NEXT_PUBLIC_FRONT_VENTAS: ${NEXT_PUBLIC_FRONT_VENTAS}
-        NEXT_PUBLIC_FRONT_FACTURACION: ${NEXT_PUBLIC_FRONT_FACTURACION}
+        NEXT_PUBLIC_API_LOGIN: "http://localhost:8080"
+        NEXT_PUBLIC_FRONT_INVENTARIO: "http://localhost:3001"
+        NEXT_PUBLIC_FRONT_VENTAS: "http://localhost:3002"
+        NEXT_PUBLIC_FRONT_FACTURACION: "http://localhost:3003"
     ports:
       - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_LOGIN=http://localhost:8080
+      - NEXT_PUBLIC_FRONT_INVENTARIO=http://localhost:3001 
+      - NEXT_PUBLIC_FRONT_VENTAS=http://localhost:3002
+      - NEXT_PUBLIC_FRONT_FACTURACION=http://localhost:3003
 
   frontend-inventario:
     build: 
       context: ./frontend-inventario
       args:
-        NEXT_PUBLIC_FRONT_LOGIN: ${NEXT_PUBLIC_FRONT_LOGIN}
-        NEXT_PUBLIC_API_INVENTARIO: ${NEXT_PUBLIC_API_INVENTARIO}
-        NEXT_PUBLIC_API_VENTAS: ${NEXT_PUBLIC_API_VENTAS}
-        NEXT_PUBLIC_API_FACTURACION: ${NEXT_PUBLIC_API_FACTURACION}
-        NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: ${NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+        NEXT_PUBLIC_FRONT_LOGIN: "http://localhost:3000"
+        NEXT_PUBLIC_API_INVENTARIO: "http://localhost:8081"
+        NEXT_PUBLIC_API_VENTAS: "http://localhost:8082"
+        NEXT_PUBLIC_API_FACTURACION: "http://localhost:8083"
+        NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: "AIzaSyDNqVTuDN6yYgMkvpzB-zdp6rXDe8JjQtg"
     ports:
       - "3001:3000"
+    environment:
+      - NEXT_PUBLIC_FRONT_LOGIN=http://localhost:3000
+      - NEXT_PUBLIC_API_INVENTARIO=http://localhost:8081
+      - NEXT_PUBLIC_API_VENTAS=http://localhost:8082
+      - NEXT_PUBLIC_API_FACTURACION=http://localhost:8083
+      - NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=AIzaSyDNqVTuDN6yYgMkvpzB-zdp6rXDe8JjQtg
 
   frontend-ventas:
     build: 
       context: ./frontend-ventas
       args:
-        NEXT_PUBLIC_API_INVENTARIO: ${NEXT_PUBLIC_API_INVENTARIO}
-        NEXT_PUBLIC_API_VENTAS: ${NEXT_PUBLIC_API_VENTAS}
-        NEXT_PUBLIC_API_FACTURACION: ${NEXT_PUBLIC_API_FACTURACION}
-        NEXT_PUBLIC_FRONT_LOGIN: ${NEXT_PUBLIC_FRONT_LOGIN}
-        NEXT_PUBLIC_FRONT_FACTURACION: ${NEXT_PUBLIC_FRONT_FACTURACION}
+        NEXT_PUBLIC_API_INVENTARIO: "http://localhost:8081"
+        NEXT_PUBLIC_API_VENTAS: "http://localhost:8082"
+        NEXT_PUBLIC_API_FACTURACION: "http://localhost:8083"
+        NEXT_PUBLIC_FRONT_LOGIN: "http://localhost:3000"
+        NEXT_PUBLIC_FRONT_FACTURACION: "http://localhost:3003"
     ports:
       - "3002:3000"
+    environment:
+      - NEXT_PUBLIC_API_INVENTARIO=http://localhost:8081
+      - NEXT_PUBLIC_API_VENTAS=http://localhost:8082
+      - NEXT_PUBLIC_API_FACTURACION=http://localhost:8083
+      - NEXT_PUBLIC_FRONT_LOGIN=http://localhost:3000
+      - NEXT_PUBLIC_FRONT_FACTURACION=http://localhost:3003
 
   frontend-facturacion:
     build: 
       context: ./frontend-facturacion
       args:
-        NEXT_PUBLIC_TOKEN_MERCADOPAGO: ${NEXT_PUBLIC_TOKEN_MERCADOPAGO}
-        DEV_BACKEND_URLS: ${DEV_BACKEND_URLS}
+        NEXT_PUBLIC_TOKEN_MERCADOPAGO: "TEST-4ae85150-41d0-48b6-aed4-d48ded2d0cbe"
+        DEV_BACKEND_URL: "http://localhost:8083/"
     ports:
       - "3003:3000"
+    environment:
+      - NEXT_PUBLIC_TOKEN_MERCADOPAGO=TEST-4ae85150-41d0-48b6-aed4-d48ded2d0cbe
+      - DEV_BACKEND_URL=http://localhost:8083/
 
   backend-login:
     build: ./backend-login
