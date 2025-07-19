@@ -43,6 +43,7 @@ services:
         NEXT_PUBLIC_API_FACTURACION: "http://localhost:8083"
         NEXT_PUBLIC_FRONT_LOGIN: "http://localhost:3000"
         NEXT_PUBLIC_FRONT_FACTURACION: "http://localhost:3003"
+        NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: "AIzaSyDNqVTuDN6yYgMkvpzB-zdp6rXDe8JjQtg"
     ports:
       - "3002:3000"
     environment:
@@ -51,6 +52,7 @@ services:
       - NEXT_PUBLIC_API_FACTURACION=http://localhost:8083
       - NEXT_PUBLIC_FRONT_LOGIN=http://localhost:3000
       - NEXT_PUBLIC_FRONT_FACTURACION=http://localhost:3003
+      - NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=AIzaSyDNqVTuDN6yYgMkvpzB-zdp6rXDe8JjQtg
 
   frontend-facturacion:
     build: 
@@ -58,11 +60,13 @@ services:
       args:
         NEXT_PUBLIC_TOKEN_MERCADOPAGO: "TEST-4ae85150-41d0-48b6-aed4-d48ded2d0cbe"
         DEV_BACKEND_URL: "http://localhost:8083/"
+        NEXT_PUBLIC_VENTAS_URL: "http://localhost:3002/"
     ports:
       - "3003:3000"
     environment:
       - NEXT_PUBLIC_TOKEN_MERCADOPAGO=TEST-4ae85150-41d0-48b6-aed4-d48ded2d0cbe
       - DEV_BACKEND_URL=http://localhost:8083/
+      - NEXT_PUBLIC_VENTAS_URL=http://localhost:3002/
 
   backend-login:
     build: ./backend-login
