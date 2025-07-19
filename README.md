@@ -32,11 +32,16 @@ cd infra
 - Pedirme a mí (Andres) las variables de entorno si desean levantar todos los servicios +56979828311
 
 ### 3. Levantar los servicios
-
+- Antes de levantar los servicios debes situarte en la terminal, en el directorio infra y actualizar los repos con:
+```bash
+git pull origin main
+``` 
+- Luego para levantar los servicios, dentro del mismo directorio que hiciste "git pull" debes hacer:
 ```bash
 docker compose up --build
 ```
-
+- Luego de ejecutar el comando, se levantaran todos los servicios en tu pc y los tendrás disponibles en sus respectivos puertos del localhost
+  
 ## 🔄 Actualizar submódulos a la rama develop
 ### ✅ Pasos para actualizar un submódulo
 
